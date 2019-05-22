@@ -1,10 +1,23 @@
 #include <iostream>
 
 using namespace std;
+double sumar(double a, double b){
+   return 0;
+}
+double restar(double a, double b){
+   return 0;
+}
+double multiplicar(double a, double b){
+   return 0;
+}
+double dividir(double a, double b){
+   return 0;
+}
 
 int main()
 {
-    int opcion, a , b;
+    int opcion;
+    double a , b, respuesta;
     bool flag;
     while (flag==true){
     cout << "Bienvenido a la calculadora, porfavor elija una opcion: " << endl;
@@ -15,19 +28,29 @@ int main()
     cin<< opcion;
     switch(opcion){
         case 1: {
+           respuesta=sumar(a, b);
+            break;
         }
         case 2: {
+            respuesta=restar(a, b);
+            break;
         }
         case 3: {
+            respuesta=multiplicar(a, b);
+            break;
         }
         case 4: {
+            respuesta=dividir(a, b);
+            break;
         }
         default : {
+            cout << "opcion no valida"<<endl;
+            break;
         }
     }
+    cout << "Su respuesta es: " <<respuesta<<endl;
     cout << "Si desea realizar otra operacion oprima 1, si desea salir oprima 0" << endl;
     cin<<flag;
     }
-
     return 0;
 }
