@@ -26,7 +26,7 @@ int main()
     cout << "2. Restar 2 numeros." << endl;
     cout << "3. Multiplicar 2 numeros." << endl;
     cout << "4. Dividir 2 numeros." << endl;
-    cin<< opcion;
+    cin>> opcion;
     switch(opcion){
         case 1: {
            respuesta=sumar(a, b);
@@ -51,7 +51,7 @@ int main()
     }
     cout << "Su respuesta es: " <<respuesta<<endl;
     cout << "Si desea realizar otra operacion oprima 1, si desea salir oprima 0" << endl;
-    cin<<flag;
+    cin>>flag;
     }
     return 0;
 }
