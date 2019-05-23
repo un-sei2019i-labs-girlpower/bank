@@ -10,10 +10,12 @@ double restar(double a, double b){
    return a-b;
 }
 double multiplicar(double a, double b){
-   return 0;
+   return a*b;
 }
 double dividir(double a, double b){
-   return 0;
+    if (b==0)
+        throw std::overflow_error("Divide by zero exception");
+    return a/b;
 }
 
 int main()
