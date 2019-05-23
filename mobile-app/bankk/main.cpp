@@ -3,10 +3,11 @@
 using namespace std;
 
 double sumar(double a, double b){
-   return 0;
+
+   return a+b;
 }
 double restar(double a, double b){
-   return 0;
+   return a-b;
 }
 double multiplicar(double a, double b){
    return 0;
@@ -29,10 +30,18 @@ int main()
     cin>> opcion;
     switch(opcion){
         case 1: {
+                cout << "ingrese el numero uno "<< endl;
+                cin>>a;
+                cout << "ingrese el numero dos "<<endl;
+                cin>>b;
            respuesta=sumar(a, b);
             break;
         }
         case 2: {
+                cout << "ingrese el numero uno "<< endl;
+                cin>>a;
+                cout << "ingrese el numero dos "<<endl;
+                cin>>b;
             respuesta=restar(a, b);
             break;
         }
