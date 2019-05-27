@@ -1,0 +1,4 @@
+#Sun May 26 18:45:39 COT 2019
+base.0=C\:\\Users\\Lenovo\\Documents\\Universidad\\Androi\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
+path.0=classes.dex
+renamed.0=classes.dex
