@@ -1,4 +1,4 @@
-package com.example.bank_app.DataAccess;
+package com.example.bank_app.DataAccess.DataBase;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -42,7 +42,11 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_administrador);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_bancaria);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + transaccion);
-        sqLiteDatabase.execSQL(table);
+        sqLiteDatabase.execSQL(persona);
+        sqLiteDatabase.execSQL(cuenta_usuario);
+        sqLiteDatabase.execSQL(cuenta_administrador);
+        sqLiteDatabase.execSQL(cuenta_bancaria);
+        sqLiteDatabase.execSQL(transaccion);
     }
 
     public void agregar_registro(String primary_key, String contraseña) {
