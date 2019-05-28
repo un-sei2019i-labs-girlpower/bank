@@ -44,7 +44,7 @@ public class Database extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getWritableDatabase();
         Cursor curso =db.rawQuery("SELECT CODIGO, CONTRASEÑA FROM CURSO WHERE CODIGO='"+id+"'AND CONTRASEÑA ='"+contraseña+"'",null);
-        if(curso.moveToFirst()){
+        if(curso.moveToFirst()){ // MOVETOFIRST SI ENCUENTRA ALGO
             if(curso.getString(0).equals(id)
                     && curso.getString(1).equals(contraseña ))
             {
@@ -55,6 +55,14 @@ public class Database extends SQLiteOpenHelper {
 
         }
         return false;
+    }
+
+    public void mostrar(){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor curso =db.rawQuery("SELECT CODIGO, CONTRASEÑA FROM CURSO ",null);
+        if(curso.moveToFirst()){
+
+        }
     }
 }
 
