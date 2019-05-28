@@ -12,7 +12,13 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String nombre = "Database.bd";
     private static final int version = 1;
-    private static final String table = "CREATE TABLE CURSO (CODIGO TEXT PRIMARY KEY, CONTRASEÑA TEXT )";
+    private static final String nombre = "Database.bd";
+    private static final int version = 1;
+    private static final String persona = "CREATE TABLE PERSONA (DOCUMENTO INTEGER PRIMARY KEY, NOMBRE TEXT, CORREO TEXT, CELULAR INTEGER )";
+    private static final String cuenta_usuario = "CREATE TABLE CUENTA_USUARIOS (ID_USUARIO INTEGER PRIMARY KEY, CONTRASEÑA_USUARIO NUMBER )";
+    private static final String cuenta_administrador = "CREATE TABLE CUENTA_ADMINISTRADOR (ID_ADMINISTRADOR INTEGER PRIMARY KEY, CONTRASEÑA_ADMINISTRADOR TEXT )";
+    static final String cuenta_bancaria = "CREATE TABLE CUENTA_BANCARIA (NUMERO_CUENTA INTEGER PRIMARY KEY, ID INTEGER, MONTO REAL)";
+    static final String transaccion = "CREATE TABLE TRANSACCION (NUMERO_TRA INTEGER PRIMARY KEY, REFERENCIA INTEGER PRIMARY KEY, FECHA TEXT, INFORMACION TEXT )";
 
     public Database(Context context) {
         super(context, nombre, null, version);
@@ -20,9 +26,14 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(table);
+        sqLiteDatabase.execSQL(persona);
+        sqLiteDatabase.execSQL(cuenta_usuario);
+        sqLiteDatabase.execSQL(cuenta_administrador);
+        sqLiteDatabase.execSQL(cuenta_bancaria);
+        sqLiteDatabase.execSQL(transaccion);
+        sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER1, 123)");
+        sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER2, 123)";
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + table);
