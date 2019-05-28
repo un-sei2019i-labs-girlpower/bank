@@ -31,12 +31,17 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
+        sqLiteDatabase.execSQL();
         sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER1, 123)");
         sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER2, 123)";
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + table);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + persona);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_usuario);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_administrador);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_bancaria);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + transaccion);
         sqLiteDatabase.execSQL(table);
     }
 
