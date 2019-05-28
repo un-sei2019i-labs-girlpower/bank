@@ -5,14 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#60FFC107"
-    tools:context=".Menu" >
+    tools:context=".Menu">
 
     <LinearLayout
         android:layout_width="395dp"
         android:layout_height="715dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorAccent"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/b_consignar"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="@android:dimen/notification_large_icon_width"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorAccent"
+            android:backgroundTintMode="add"
+            android:text="Consignar" />
 
         <TextView
             android:id="@+id/textView6"
@@ -22,5 +36,6 @@
             android:layout_weight="1"
             android:text="Bienvenido"
             android:textSize="36sp" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
