@@ -1,4 +1,4 @@
-package com.example.bank_app;
+package com.example.bank_app.DataAccess;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -18,7 +18,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String cuenta_usuario = "CREATE TABLE CUENTA_USUARIOS (ID_USUARIO INTEGER PRIMARY KEY, CONTRASEÑA_USUARIO NUMBER )";
     private static final String cuenta_administrador = "CREATE TABLE CUENTA_ADMINISTRADOR (ID_ADMINISTRADOR INTEGER PRIMARY KEY, CONTRASEÑA_ADMINISTRADOR TEXT )";
     static final String cuenta_bancaria = "CREATE TABLE CUENTA_BANCARIA (NUMERO_CUENTA INTEGER PRIMARY KEY, ID INTEGER, MONTO REAL)";
-    static final String transaccion = "CREATE TABLE TRANSACCION (NUMERO_TRA INTEGER PRIMARY KEY, REFERENCIA INTEGER PRIMARY KEY, FECHA TEXT, INFORMACION TEXT )";
+    static final String transaccion = "CREATE TABLE TRANSACCION (NUMERO_TRA INTEGER FOREGIAN KEY, REFERENCIA INTEGER PRIMARY KEY, FECHA TEXT, INFORMACION TEXT )";
 
     public Database(Context context) {
         super(context, nombre, null, version);
@@ -31,7 +31,7 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
-        sqLiteDatabase.execSQL();
+        //sqLiteDatabase.execSQL();
         sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER1, 123)");
         sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER2, 123)";
     }
