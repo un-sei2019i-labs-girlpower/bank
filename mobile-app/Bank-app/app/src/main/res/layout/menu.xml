@@ -8,25 +8,20 @@
     tools:context=".Menu">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="395dp"
         android:layout_height="715dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:background="@color/colorAccent"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="8dp">
-
-        <Button
-            android:id="@+id/b_consignar"
-            style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="@android:dimen/notification_large_icon_width"
-            android:layout_weight="1"
-            android:background="@color/colorAccent"
-            android:backgroundTint="@color/colorAccent"
-            android:backgroundTintMode="add"
-            android:text="Consignar" />
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/textView6"
@@ -38,4 +33,22 @@
             android:textSize="36sp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/b_Enviar"
+        android:layout_width="259dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#0DE4E4"
+        android:text="Enviar Dinero"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.263" />
+
+
 </android.support.constraint.ConstraintLayout>
