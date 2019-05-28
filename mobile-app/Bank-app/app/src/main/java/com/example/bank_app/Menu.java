@@ -18,6 +18,7 @@ public class Menu extends AppCompatActivity {
         enviar = (Button) findViewById(R.id.B_enviar);
         saldo = (TextView) findViewById(R.id.T_saldo);
         final Database database = new Database(getApplicationContext());
+
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
