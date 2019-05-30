@@ -1,4 +1,4 @@
-package com.example.bank_app;
+package com.example.bank_app.Presentation;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.bank_app.R;
 
 public class Menu extends AppCompatActivity {
     Button enviar;
