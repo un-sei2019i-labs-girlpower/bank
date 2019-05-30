@@ -8,9 +8,9 @@ public class User {
     private String email;
     private int phone;
 
-    public User(int id_user, int identification, int password,String name, String email, int phone) {
+    public User(int id_user, int identification_user, int password,String name, String email, int phone) {
         this.id_user = id_user;
-        this.identification_user = identification;
+        this.identification_user = identification_user;
         this.password_user = password;
         this.name = name;
         this.email = email;
@@ -21,15 +21,23 @@ public class User {
         return id_user;
     }
 
-    public int getIdentification() {
+    public int getIdentification_user() {
         return identification_user;
     }
 
     public int getPassword_user() {
         return password_user;
     }
-    private void create_user (){};
-    private int getUserById(){return 0;};
-    private void updateUser(){};
-    private void delateUser (){};
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
 }
