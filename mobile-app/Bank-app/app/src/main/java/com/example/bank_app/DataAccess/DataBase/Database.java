@@ -12,13 +12,17 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String nombre = "Database.bd";
     private static final int version = 1;
-    private static final String nombre = "Database.bd";
-    private static final int version = 1;
-    private static final String persona = "CREATE TABLE PERSONA (DOCUMENTO INTEGER PRIMARY KEY, NOMBRE TEXT, CORREO TEXT, CELULAR INTEGER )";
-    private static final String cuenta_usuario = "CREATE TABLE CUENTA_USUARIOS (ID_USUARIO INTEGER PRIMARY KEY, CONTRASEÑA_USUARIO NUMBER )";
-    private static final String cuenta_administrador = "CREATE TABLE CUENTA_ADMINISTRADOR (ID_ADMINISTRADOR INTEGER PRIMARY KEY, CONTRASEÑA_ADMINISTRADOR TEXT )";
-    static final String cuenta_bancaria = "CREATE TABLE CUENTA_BANCARIA (NUMERO_CUENTA INTEGER PRIMARY KEY, ID INTEGER, MONTO REAL)";
-    static final String transaccion = "CREATE TABLE TRANSACCION (NUMERO_TRA INTEGER FOREGIAN KEY, REFERENCIA INTEGER PRIMARY KEY, FECHA TEXT, INFORMACION TEXT )";
+    private static final String persona = "CREATE TABLE PERSON (IDENTIFICATION INTEGER PRIMARY KEY, NAME TEXT, EMAIL TEXT, PHONE INTEGER )";
+    private static final String cuenta_usuario = "CREATE TABLE USER (ID_USER INTEGER PRIMARY KEY, PASSWORD_USER NUMBER,IDENTIFICATION INTEGER" +
+                                                "FOREIGN KEY (IDENTIFICATION) REFERENCES PERSON(IDENTIFICATION) )";
+    private static final String cuenta_administrador = "CREATE TABLE ADMIN (ID_ADMIN INTEGER PRIMARY KEY,IDENTIFICATION INTEGER, PASSWORD_ADMIN TEXT " +
+                                                        "FOREIGN KEY (IDENTIFICATION) REFERENCES PERSON(IDENTIFICATION) )";
+
+    static final String cuenta_bancaria = "CREATE TABLE ACCOUNT (ACCOUNT_NUMBER INTEGER PRIMARY KEY, AMOUNT REAL, ID_USER INTEGER, ID_ADMIN INTEGER," +
+                                        "FOREIGN KEY (ID_USER) REFERENCES USER(ID_USER), FOREIGN KEY (ID_ADMIN) REFERENCES ADMIN(ID_ADMIN) )";
+
+    static final String transaccion = "CREATE TABLE TRANSATION (ACCOUNT_NUMBER INTEGER PRIMARY KEY,REFERENCE INTEGER, DATE TEXT, INFORMATION TEXT, " +
+                                        " FOREIGN KEY (ACCOUNT_NUMBER) REFERENCES ACCOUNT(ACCOUNT_NUMBER) )";
 
     public Database(Context context) {
         super(context, nombre, null, version);
