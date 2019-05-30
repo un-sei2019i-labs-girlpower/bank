@@ -13,10 +13,8 @@ public class Database extends SQLiteOpenHelper {
     private static final String nombre = "Database.bd";
     private static final int version = 1;
     private static final String persona = "CREATE TABLE PERSON (IDENTIFICATION INTEGER PRIMARY KEY, NAME TEXT, EMAIL TEXT, PHONE INTEGER )";
-    private static final String cuenta_usuario = "CREATE TABLE USER (ID_USER INTEGER PRIMARY KEY, PASSWORD_USER NUMBER,IDENTIFICATION INTEGER" +
-                                                "FOREIGN KEY (IDENTIFICATION) REFERENCES PERSON(IDENTIFICATION) )";
-    private static final String cuenta_administrador = "CREATE TABLE ADMIN (ID_ADMIN INTEGER PRIMARY KEY,IDENTIFICATION INTEGER, PASSWORD_ADMIN TEXT " +
-                                                        "FOREIGN KEY (IDENTIFICATION) REFERENCES PERSON(IDENTIFICATION) )";
+    private static final String cuenta_usuario = "CREATE TABLE USER (INTEGER PRIMARY KEY, IDENTIFICATION_USER INTEGER, NAME TEXT, EMAIL TEXT, PHONE INTEGERID_USER,  PASSWORD_USER NUMBER,IDENTIFICATION INTEGER)";
+    private static final String cuenta_administrador = "CREATE TABLE ADMIN (ID_ADMIN INTEGER PRIMARY KEY,IDENTIFICATION_ADMIN INTEGER, PASSWORD_ADMIN TEXT ";
 
     static final String cuenta_bancaria = "CREATE TABLE ACCOUNT (ACCOUNT_NUMBER INTEGER PRIMARY KEY, AMOUNT REAL, ID_USER INTEGER, ID_ADMIN INTEGER," +
                                         "FOREIGN KEY (ID_USER) REFERENCES USER(ID_USER), FOREIGN KEY (ID_ADMIN) REFERENCES ADMIN(ID_ADMIN) )";
@@ -30,14 +28,13 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(persona);
+
         sqLiteDatabase.execSQL(cuenta_usuario);
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
         //sqLiteDatabase.execSQL();
-        sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER1, 123)");
-        sqLiteDatabase.execSQL("INSERT INTO CUENTA_USUARIOS VALUES (USER2, 123)";
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
