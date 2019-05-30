@@ -16,10 +16,13 @@ public class AccountRepository {
         this.db = new Database(context);
     }
 
-    private boolean create_accout (Account account){
+    private boolean createAccout (Account account){
         SQLiteDatabase database = db.getWritableDatabase();
         ContentValues values = new ContentValues();
-        //values.put("ID",);
+        values.put("ACCOUNT_NUMBER", account.getAccount_number());
+        values.put("AMOUNT", account.getAmount());
+        values.put("ID_USER", account.getId_user());
+        values.put("ID_ADMIN", account.getId_admin());
         database.insert("ACCOUNT",null,values);
         return true;
     };
