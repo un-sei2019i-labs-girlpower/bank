@@ -12,8 +12,7 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String nombre = "Database.bd";
     private static final int version = 1;
-    private static final String persona = "CREATE TABLE PERSON (IDENTIFICATION INTEGER PRIMARY KEY, NAME TEXT, EMAIL TEXT, PHONE INTEGER )";
-    private static final String cuenta_usuario = "CREATE TABLE USER (INTEGER PRIMARY KEY, IDENTIFICATION_USER INTEGER, NAME TEXT, EMAIL TEXT, PHONE INTEGERID_USER,  PASSWORD_USER NUMBER,IDENTIFICATION INTEGER)";
+    private static final String cuenta_usuario = "CREATE TABLE USER (ID_USER INTEGER PRIMARY KEY, IDENTIFICATION_USER INTEGER, NAME TEXT, EMAIL TEXT, PHONE INTEGERID_USER,  PASSWORD_USER NUMBER)";
     private static final String cuenta_administrador = "CREATE TABLE ADMIN (ID_ADMIN INTEGER PRIMARY KEY,IDENTIFICATION_ADMIN INTEGER, PASSWORD_ADMIN TEXT ";
 
     static final String cuenta_bancaria = "CREATE TABLE ACCOUNT (ACCOUNT_NUMBER INTEGER PRIMARY KEY, AMOUNT REAL, ID_USER INTEGER, ID_ADMIN INTEGER," +
@@ -38,12 +37,12 @@ public class Database extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + persona);
+
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_usuario);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_administrador);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_bancaria);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + transaccion);
-        sqLiteDatabase.execSQL(persona);
+
         sqLiteDatabase.execSQL(cuenta_usuario);
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
