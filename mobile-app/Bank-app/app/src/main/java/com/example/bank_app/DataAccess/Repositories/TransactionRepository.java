@@ -24,7 +24,6 @@ public class TransactionRepository {
         values.put("REFERENCE",transaction.getReference());
         values.put("DATE",transaction.getDate());
 
-        database.que
         database.insert("TRANSATION",null,values);
         return true;
     };
