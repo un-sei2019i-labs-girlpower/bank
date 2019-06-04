@@ -9,6 +9,8 @@ import com.example.bank_app.DataAccess.Models.Account;
 import com.example.bank_app.DataAccess.Models.Transaction;
 
 public class TransactionRepository {
+    Context context;
+    Database db;
 
     public TransactionRepository(Context context) {
         this.context= context;
