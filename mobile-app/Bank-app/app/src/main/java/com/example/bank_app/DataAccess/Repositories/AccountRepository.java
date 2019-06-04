@@ -38,7 +38,8 @@ public class AccountRepository {
         columnas[2]="ID_USER";
         columnas[3]="ID_ADMIN";
         Cursor values =database.query("ACCOUNT",columnas,"ID_USER = '"+ID_USERS_SEARCH+"'",null,null,null,null,null);
-
+        if (values == null)
+            return null;
         return new Account(values.getInt(0), values.getInt(3), values.getDouble(1), values.getInt(2));
     }
     public boolean updateAccount(Account actualizar , Account anterior){

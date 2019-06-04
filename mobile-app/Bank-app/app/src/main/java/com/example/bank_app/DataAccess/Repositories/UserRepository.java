@@ -9,10 +9,10 @@ import com.example.bank_app.DataAccess.DataBase.Database;
 import com.example.bank_app.DataAccess.Models.Account;
 import com.example.bank_app.DataAccess.Models.User;
 
-public class userRepository {
+public class UserRepository {
     Context context;
     Database db;
-    public userRepository(Context context) {
+    public UserRepository(Context context) {
         this.context= context;
         this.db = new Database(context);
     }
@@ -34,6 +34,8 @@ public class userRepository {
         User user= new User();
         String[] camp= {"ID_USER", "IDENTIFICATION_USER", "NAME", "EMAIL", "PHONE", "PASSWORD_USER NUMBER"};
         Cursor c=database.query("USER", camp,"IDENTIFICATION_USER='"+identification_user+"'",null,null, null,null);
+        if(c==null)
+            return null;
         user.setId_user(c.getInt(0));
         user.setIdentification_user(c.getInt(1));
         user.setName(c.getString(2));
