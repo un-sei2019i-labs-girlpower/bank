@@ -27,7 +27,9 @@ public class SendMoneyActivity extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendMoneyController.sendMoney()
+                Bundle bundle = getIntent().getExtras();
+                int user_identification1 = bundle.getInt("user_identification");
+                sendMoneyController.sendMoney();
             }
         });
 
