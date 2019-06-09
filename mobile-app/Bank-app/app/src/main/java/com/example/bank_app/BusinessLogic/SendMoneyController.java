@@ -64,11 +64,10 @@ private static Account account2;
                 ar.updateAccount(ac2N, ac2);
                 return 1;
 
-            } else {
-                return 2;
+            } else return 2;
 
-            }
-    } return 3;
+
+    }else return 3;
 
 
     }
