@@ -8,6 +8,10 @@ import com.example.bank_app.DataAccess.Models.Transaction;
 
 import com.example.bank_app.DataAccess.Repositories.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class SendMoneyController {
 public static int referencia = 0;
 private AccountRepository ar;
@@ -37,7 +41,7 @@ private static Account account2;
     }
 
 
-    public int sendMoney (int user_identification1, int  user_identification2, double amount, String date, String information) { //devuelve el caso 1. transaccion exitosa 2. no hay suficiente saldo 3. el destinatario no existe
+    public int sendMoney (int user_identification1, int  user_identification2, double amount, String information) { //devuelve el caso 1. transaccion exitosa 2. no hay suficiente saldo 3. el destinatario no existe
 
         // SE OBTIENE EL ID DE CADA USER (USER1 - ENVIA     USER2 - RECIBE)
         int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
@@ -46,6 +50,11 @@ private static Account account2;
         // SE OBTIENEN LAS CUENTAS DE CADA USUARIO
         Account ac1 = ar.getAccount_by(id_u_1);
         Account ac2 = ar.getAccount_by(id_u_2);
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        Date fecha = new Date();
+
+        String date = dateFormat.format(fecha);
 
         if (verify_account_recipient(user_identification2)){ //SE VERIFICA QUE LA IDENTIFICACION DEL DESTINATARIO EXISTE EN LA BASE DE DATOS
             if (verify_Amount(user_identification1, amount)) { // SE VERIFICA QUE EL USUARIO QUE ENVIA TENGA SUFICIENTE SALDO
