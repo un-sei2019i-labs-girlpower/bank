@@ -1,4 +1,5 @@
 package com.example.bank_app.DataAccess.DataBase;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -32,6 +33,7 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
+
         //sqLiteDatabase.execSQL();
 
     }
@@ -47,20 +49,50 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
+
+        ContentValues values = new ContentValues();
+        values.put("ID_USER", 1);
+        values.put("IDENTIFICATION_USER", 1);
+        values.put("NAME", "Pepito");
+        values.put("EMAIL", "pepito@hotmail.com");
+        values.put("PHONE", 2617447);
+        values.put("PASSWORD_USER NUMBER", 123456);
+        sqLiteDatabase.insert("USER",null, values);
+
+        ContentValues values1 = new ContentValues();
+        values1.put("ID_USER", 2);
+        values1.put("IDENTIFICATION_USER", 2);
+        values1.put("NAME", "Mendieta");
+        values1.put("EMAIL", "mendieta@hotmail.com");
+        values1.put("PHONE", 2617448);
+        values1.put("PASSWORD_USER NUMBER", 123456);
+        sqLiteDatabase.insert("USER",null, values1);
+
+        ContentValues values_A = new ContentValues();
+        values_A.put("ID_ADMIN", 1);
+        values_A.put("IDENTIFICATION_ADMIN", 3);
+        values_A.put("PASSWORD_ADMIN", "a1b2c3");
+        sqLiteDatabase.insert("ADMIN",null,values_A);
+
+        ContentValues values_a1 = new ContentValues();
+        values_a1.put("ACCOUNT_NUMBER", 1);
+        values_a1.put("AMOUNT", 100000);
+        values_a1.put("ID_USER",1);
+        values_a1.put("ID_ADMIN", 1);
+        sqLiteDatabase.insert("ACCOUNT",null,values_a1);
+
+        ContentValues values_a2 = new ContentValues();
+        values_a2.put("ACCOUNT_NUMBER", 2);
+        values_a2.put("AMOUNT", 100000);
+        values_a2.put("ID_USER",2);
+        values_a2.put("ID_ADMIN", 1);
+        sqLiteDatabase.insert("ACCOUNT",null,values_a2);
+
+
     }
 
-    public void agregar_registro(String primary_key, String contraseña) {
-        SQLiteDatabase db = getWritableDatabase();
-        if (db != null) {
 
-            db.execSQL("INSERT INTO CURSO VALUES ('" + primary_key + "','" + contraseña + "')");
-            db.close();
-        }
-        db.close();
-    }
-
-
-    public boolean ingresar(String id, String contraseña){
+    /*public boolean ingresar(String id, String contraseña){
 
         SQLiteDatabase db = getWritableDatabase();
         Cursor curso =db.rawQuery("SELECT CODIGO, CONTRASEÑA FROM CURSO WHERE CODIGO='"+id+"'AND CONTRASEÑA ='"+contraseña+"'",null);
@@ -75,7 +107,7 @@ public class Database extends SQLiteOpenHelper {
 
         }
         return false;
-    }
+    }*/
 }
 
 
