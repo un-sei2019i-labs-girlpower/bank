@@ -17,15 +17,15 @@ public class SingIn {
     }
 
 
-    public User sing (String id, String password){
+    public boolean sing (String id, String password){
             user = userRepository.getUserByIdentification(Integer.parseInt(id));
               if(user!=null){
                     if(user.getPassword_user()==Integer.parseInt(password)){
-                        return user;
+                        return true;
                       }else{
-                        return null;
+                        return false;
                     }
                  }
-              return null;
+              return false;
             }
        }

@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.bank_app.BusinessLogic.SingIn;
-import com.example.bank_app.DataAccess.DataBase.Database;
-import com.example.bank_app.DataAccess.Models.User;
 import com.example.bank_app.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         Biniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               User user = singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString());
-              if(user!=null){
+
+              if(singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString())){
                       Toast.makeText(getApplicationContext(), "SE INGRESO SECCION CORRECTAMENTE", Toast.LENGTH_SHORT).show();
-                      startActivity(new Intent(MainActivity.this, Menu.class));
+                      Intent intent = new Intent(MainActivity.this, SendMoneyActivity.class);
+                      intent.putExtra("user", Integer.parseInt(editCog.getText().toString()));
+                      startActivity(intent);
 
                     }else{
                     Toast.makeText(getApplicationContext(), "USUARIO O CONTRASEÑA INCORRECTO", Toast.LENGTH_SHORT).show();

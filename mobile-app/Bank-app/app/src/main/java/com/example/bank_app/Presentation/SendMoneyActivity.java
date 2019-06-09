@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bank_app.BusinessLogic.SendMoneyController;
 import com.example.bank_app.R;
+import com.example.bank_app.Send;
 
 public class SendMoneyActivity extends AppCompatActivity {
     Button enviar;
@@ -19,6 +21,7 @@ public class SendMoneyActivity extends AppCompatActivity {
         setContentView(R.layout.menu);
         enviar = (Button) findViewById(R.id.B_enviar);
         saldo = (TextView) findViewById(R.id.T_saldo);
+        final SendMoneyController sendMoneyController= new SendMoneyController(getApplicationContext());
 
 
         enviar.setOnClickListener(new View.OnClickListener() {
