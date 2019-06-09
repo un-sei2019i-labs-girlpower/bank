@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
               if(singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString())){
                       Toast.makeText(getApplicationContext(), "SE INGRESO SECCION CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                       Intent intent = new Intent(MainActivity.this, SendMoneyActivity.class);
-                      intent.putExtra("user", Integer.parseInt(editCog.getText().toString()));
+                      intent.putExtra("user_identification", Integer.parseInt(editCog.getText().toString()));
                       startActivity(intent);
 
                     }else{
