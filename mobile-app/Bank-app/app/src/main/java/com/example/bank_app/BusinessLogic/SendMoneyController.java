@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.bank_app.DataAccess.Models.Account;
 import com.example.bank_app.DataAccess.Models.Transaction;
-import com.example.bank_app.DataAccess.Models.User;
+
 
 import com.example.bank_app.DataAccess.Repositories.*;
 
