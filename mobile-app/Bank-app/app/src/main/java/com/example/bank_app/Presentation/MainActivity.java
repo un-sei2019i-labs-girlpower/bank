@@ -1,5 +1,6 @@
 package com.example.bank_app.Presentation;
 
+import android.app.Presentation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Biniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString())
+              if(true){
 
-              if(singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString())){
-                      Toast.makeText(getApplicationContext(), "SE INGRESO SECCION CORRECTAMENTE", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "SE INGRESO SECCION CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                       Intent intent = new Intent(MainActivity.this, SendMoneyActivity.class);
                       intent.putExtra("user_identification", Integer.parseInt(editCog.getText().toString()));
                       startActivity(intent);

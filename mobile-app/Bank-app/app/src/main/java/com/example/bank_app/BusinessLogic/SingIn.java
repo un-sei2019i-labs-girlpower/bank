@@ -18,8 +18,9 @@ public class SingIn {
 
 
     public boolean sing (String id, String password){
+
             user = userRepository.getUserByIdentification(Integer.parseInt(id));
-              if(user!=null){
+              if(!user.equals(null)){
                     if(user.getPassword_user()==Integer.parseInt(password)){
                         return true;
                       }else{
