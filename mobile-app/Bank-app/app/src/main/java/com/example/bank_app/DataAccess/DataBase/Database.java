@@ -14,7 +14,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String nombre = "Database.bd";
     private static final int version = 1;
     private static final String cuenta_usuario = "CREATE TABLE USER (ID_USER INTEGER PRIMARY KEY, IDENTIFICATION_USER INTEGER, NAME TEXT, EMAIL TEXT, PHONE INTEGERID_USER,  PASSWORD_USER NUMBER)";
-    private static final String cuenta_administrador = "CREATE TABLE ADMIN (ID_ADMIN INTEGER PRIMARY KEY,IDENTIFICATION_ADMIN INTEGER, PASSWORD_ADMIN TEXT ";
+    private static final String cuenta_administrador = "CREATE TABLE ADMIN (ID_ADMIN INTEGER PRIMARY KEY,IDENTIFICATION_ADMIN INTEGER, PASSWORD_ADMIN TEXT )";
 
     static final String cuenta_bancaria = "CREATE TABLE ACCOUNT (ACCOUNT_NUMBER INTEGER PRIMARY KEY, AMOUNT REAL, ID_USER INTEGER, ID_ADMIN INTEGER," +
                                         "FOREIGN KEY (ID_USER) REFERENCES USER(ID_USER), FOREIGN KEY (ID_ADMIN) REFERENCES ADMIN(ID_ADMIN) )";
@@ -52,7 +52,7 @@ public class Database extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put("ID_USER", 1);
-        values.put("IDENTIFICATION_USER", 1);
+        values.put("IDENTIFICATION_USER",1);
         values.put("NAME", "Pepito");
         values.put("EMAIL", "pepito@hotmail.com");
         values.put("PHONE", 2617447);
@@ -60,32 +60,32 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.insert("USER",null, values);
 
         ContentValues values1 = new ContentValues();
-        values1.put("ID_USER", 2);
-        values1.put("IDENTIFICATION_USER", 2);
+        values1.put("ID_USER",2);
+        values1.put("IDENTIFICATION_USER",2);
         values1.put("NAME", "Mendieta");
         values1.put("EMAIL", "mendieta@hotmail.com");
-        values1.put("PHONE", 2617448);
-        values1.put("PASSWORD_USER NUMBER", 123456);
+        values1.put("PHONE",2617448);
+        values1.put("PASSWORD_USER NUMBER",123456);
         sqLiteDatabase.insert("USER",null, values1);
 
         ContentValues values_A = new ContentValues();
-        values_A.put("ID_ADMIN", 1);
-        values_A.put("IDENTIFICATION_ADMIN", 3);
+        values_A.put("ID_ADMIN",1);
+        values_A.put("IDENTIFICATION_ADMIN",3);
         values_A.put("PASSWORD_ADMIN", "a1b2c3");
         sqLiteDatabase.insert("ADMIN",null,values_A);
 
         ContentValues values_a1 = new ContentValues();
-        values_a1.put("ACCOUNT_NUMBER", 1);
+        values_a1.put("ACCOUNT_NUMBER",1);
         values_a1.put("AMOUNT", 100000);
         values_a1.put("ID_USER",1);
-        values_a1.put("ID_ADMIN", 1);
+        values_a1.put("ID_ADMIN",1);
         sqLiteDatabase.insert("ACCOUNT",null,values_a1);
 
         ContentValues values_a2 = new ContentValues();
-        values_a2.put("ACCOUNT_NUMBER", 2);
+        values_a2.put("ACCOUNT_NUMBER",2);
         values_a2.put("AMOUNT", 100000);
         values_a2.put("ID_USER",2);
-        values_a2.put("ID_ADMIN", 1);
+        values_a2.put("ID_ADMIN",1);
         sqLiteDatabase.insert("ACCOUNT",null,values_a2);
 
 
