@@ -34,8 +34,7 @@ public class UserRepository {
         User user= new User();
         String[] camp= {"ID_USER", "IDENTIFICATION_USER", "NAME", "EMAIL", "PHONE", "PASSWORD_USER"};
         Cursor c=database.query("USER", camp,"IDENTIFICATION_USER = '"+identification_user+"'",null,null, null,null);
-        if(c==null)
-            return null;
+
         if(c.moveToFirst()) {
             user.setId_user(c.getInt(0));
             user.setIdentification_user(c.getInt(1));
