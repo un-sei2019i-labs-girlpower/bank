@@ -36,7 +36,8 @@ public class AdminRepository {
         columnas[1]="IDENTIFICATION_ADMIN";
         columnas[2]="PASSWORD_ADMIN";
         Cursor values =database.query("ADMIN",columnas,"ID_ADMIN = '"+ID_ADMIN_SEARCH+"'",null,null,null,null,null);
-
+        if(!values.moveToFirst())
+            return null;
         return new Admin(values.getInt(0), values.getInt(1), values.getString(2));
     }
     public boolean updateAccount(Admin actualizar , Admin anterior){
