@@ -19,7 +19,7 @@ public class Database extends SQLiteOpenHelper {
     static final String cuenta_bancaria = "CREATE TABLE ACCOUNT (ACCOUNT_NUMBER INTEGER PRIMARY KEY, AMOUNT REAL, ID_USER INTEGER, ID_ADMIN INTEGER," +
                                         "FOREIGN KEY (ID_USER) REFERENCES USER(ID_USER), FOREIGN KEY (ID_ADMIN) REFERENCES ADMIN(ID_ADMIN) )";
 
-    static final String transaccion = "CREATE TABLE TRANSATION (ACCOUNT_NUMBER INTEGER PRIMARY KEY,REFERENCE INTEGER, DATE TEXT, INFORMATION TEXT, " +
+    static final String transaccion = "CREATE TABLE TRANSATION (ACCOUNT_NUMBER INTEGER PRIMARY KEY,REFERENCE INTEGER, DATE TEXT, TYPE TEXT, " +
                                         " FOREIGN KEY (ACCOUNT_NUMBER) REFERENCES ACCOUNT(ACCOUNT_NUMBER) )";
 
     public Database(Context context) {
