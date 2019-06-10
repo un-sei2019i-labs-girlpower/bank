@@ -43,8 +43,9 @@ public class UserRepository {
             user.setEmail(c.getString(3));
             user.setPhone(c.getInt(4));
             user.setPassword_user(c.getInt(5));
+            return user;
         }
-        return user;
+        return null;
 
     };
     public boolean updateUser(User user){

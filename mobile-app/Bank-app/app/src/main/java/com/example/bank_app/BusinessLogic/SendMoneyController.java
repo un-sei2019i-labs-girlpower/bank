@@ -45,11 +45,10 @@ private static Account account2;
 
         // SE OBTIENE EL ID DE CADA USER (USER1 - ENVIA     USER2 - RECIBE)
         int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
-        int id_u_2 = ur.getUserByIdentification(user_identification2).getId_user();
+
 
         // SE OBTIENEN LAS CUENTAS DE CADA USUARIO
         Account ac1 = ar.getAccount_by(id_u_1);
-        Account ac2 = ar.getAccount_by(id_u_2);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         Date fecha = new Date();
@@ -57,6 +56,9 @@ private static Account account2;
         String date = dateFormat.format(fecha);
 
         if (verify_account_recipient(user_identification2)){ //SE VERIFICA QUE LA IDENTIFICACION DEL DESTINATARIO EXISTE EN LA BASE DE DATOS
+            int id_u_2 = ur.getUserByIdentification(user_identification2).getId_user();
+            Account ac2 = ar.getAccount_by(id_u_2);
+
             if (verify_Amount(user_identification1, amount)) { // SE VERIFICA QUE EL USUARIO QUE ENVIA TENGA SUFICIENTE SALDO
 
                 // SE CREA LA TRANSACCION PARA CADA USUARIO
