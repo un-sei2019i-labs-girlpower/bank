@@ -8,12 +8,11 @@ public class Transaction {
     private String type;
     private String information;
 
-    public Transaction(int account_number, int reference, String date, String type, String information) {
+    public Transaction(int account_number, int reference, String date, String type) {
         this.account_number = account_number;
         this.reference = reference;
         this.date = date;
         this.type = type;
-        this.information = information;
     }
 
     public int getAccount_number() {
@@ -32,8 +31,5 @@ public class Transaction {
         return type;
     }
 
-    public String getInformation() {
-        return information;
-    }
     
 }
