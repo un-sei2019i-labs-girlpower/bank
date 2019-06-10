@@ -32,17 +32,20 @@ public class UserRepository {
         SQLiteDatabase database = db.getWritableDatabase();
         ContentValues values = new ContentValues();
         User user= new User();
-        String[] camp= {"ID_USER", "IDENTIFICATION_USER", "NAME", "EMAIL", "PHONE", "PASSWORD_USER NUMBER"};
-        Cursor c=database.query("USER", camp,"IDENTIFICATION_USER='"+identification_user+"'",null,null, null,null);
+        String[] camp= {"ID_USER", "IDENTIFICATION_USER", "NAME", "EMAIL", "PHONE", "PASSWORD_USER"};
+        Cursor c=database.query("USER", camp,"IDENTIFICATION_USER = '"+identification_user+"'",null,null, null,null);
         if(c==null)
             return null;
-        user.setId_user(c.getInt(0));
-        user.setIdentification_user(c.getInt(1));
-        user.setName(c.getString(2));
-        user.setEmail(c.getString(3));
-        user.setPhone(c.getInt(4));
-        user.setPassword_user(c.getInt(5));
+        if(c.moveToFirst()) {
+            user.setId_user(c.getInt(0));
+            user.setIdentification_user(c.getInt(1));
+            user.setName(c.getString(2));
+            user.setEmail(c.getString(3));
+            user.setPhone(c.getInt(4));
+            user.setPassword_user(c.getInt(5));
+        }
         return user;
+
     };
     public boolean updateUser(User user){
         SQLiteDatabase database = db.getWritableDatabase();

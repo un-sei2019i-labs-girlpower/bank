@@ -28,7 +28,7 @@ public class SendMoneyActivity extends AppCompatActivity {
         enviar = (Button) findViewById(R.id.B_enviar);
         saldo = (TextView) findViewById(R.id.T_saldo);
         Bundle bundle = getIntent().getExtras();
-        final int user_identification1 = bundle.getInt("user_identification");
+        final int user_identification1 =  Integer.parseInt(bundle.getString("user_identification"));
         final SendMoneyController sendMoneyController = new SendMoneyController(getApplicationContext());
 
         enviar.setOnClickListener(new View.OnClickListener() {

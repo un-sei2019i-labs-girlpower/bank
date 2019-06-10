@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         editCog = (EditText)findViewById(R.id.editID);
         edcontraseña = (EditText)findViewById(R.id.editContraseña);
         Biniciar= (Button) findViewById(R.id.B_iniciar);
@@ -31,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString())
-              if(true){
+              if(singIn.sing(editCog.getText().toString(), edcontraseña.getText().toString())){
 
                     Toast.makeText(getApplicationContext(), "SE INGRESO SECCION CORRECTAMENTE", Toast.LENGTH_SHORT).show();
                       Intent intent = new Intent(MainActivity.this, SendMoneyActivity.class);
-                      intent.putExtra("user_identification", Integer.parseInt(editCog.getText().toString()));
+                      intent.putExtra("user_identification", editCog.getText().toString());
                       startActivity(intent);
 
                     }else{
