@@ -41,7 +41,7 @@ private static Account account2;
     }
 
 
-    public int sendMoney (int user_identification1, int  user_identification2, double amount, String information) { //devuelve el caso 1. transaccion exitosa 2. no hay suficiente saldo 3. el destinatario no existe
+    public int sendMoney (int user_identification1, int  user_identification2, double amount) { //devuelve el caso 1. transaccion exitosa 2. no hay suficiente saldo 3. el destinatario no existe
 
         // SE OBTIENE EL ID DE CADA USER (USER1 - ENVIA     USER2 - RECIBE)
         int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
@@ -60,8 +60,8 @@ private static Account account2;
             if (verify_Amount(user_identification1, amount)) { // SE VERIFICA QUE EL USUARIO QUE ENVIA TENGA SUFICIENTE SALDO
 
                 // SE CREA LA TRANSACCION PARA CADA USUARIO
-                Transaction t1 = new Transaction(ac1.getAccount_number(), referencia++, date, "Sender", information); //EL QUE ENVIA
-                Transaction t2 = new Transaction(ac1.getAccount_number(), referencia++, date, "Payee", information); //EL QUE RECIBE
+                Transaction t1 = new Transaction(ac1.getAccount_number(), referencia++, date, "Sender"); //EL QUE ENVIA
+                Transaction t2 = new Transaction(ac1.getAccount_number(), referencia++, date, "Payee"); //EL QUE RECIBE
                 tr.createTransaction(t1);
                 tr.createTransaction(t2);
 

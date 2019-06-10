@@ -21,7 +21,6 @@ public class TransactionRepository {
         SQLiteDatabase database = db.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ACCOUNT",transaction.getAccount_number());
-        values.put("INFORMATION",transaction.getInformation());
         values.put("TYPE",transaction.getType()); ///////////// FALTA EN LA BASE DE DATOS
         values.put("REFERENCE",transaction.getReference());
         values.put("DATE",transaction.getDate());
