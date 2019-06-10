@@ -44,11 +44,11 @@ private static Account account2;
     public int sendMoney (int user_identification1, int  user_identification2, double amount) { //devuelve el caso 1. transaccion exitosa 2. no hay suficiente saldo 3. el destinatario no existe
 
         // SE OBTIENE EL ID DE CADA USER (USER1 - ENVIA     USER2 - RECIBE)
-      int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
-       int id_u_2 = ur.getUserByIdentification(user_identification2).getId_user();
+        int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
+        int id_u_2 = ur.getUserByIdentification(user_identification2).getId_user();
 
         // SE OBTIENEN LAS CUENTAS DE CADA USUARIO
-        Account ac1 = ar.getAccount_by(1);
+        Account ac1 = ar.getAccount_by(id_u_1);
         Account ac2 = ar.getAccount_by(id_u_2);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
