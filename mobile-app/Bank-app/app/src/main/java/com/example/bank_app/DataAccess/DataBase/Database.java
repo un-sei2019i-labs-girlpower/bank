@@ -28,35 +28,18 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        System.out.println("papas1");
         sqLiteDatabase.execSQL(cuenta_usuario);
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
-
-        //sqLiteDatabase.execSQL();
-
-    }
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_usuario);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_administrador);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_bancaria);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + transaccion);
-
-        sqLiteDatabase.execSQL(cuenta_usuario);
-        sqLiteDatabase.execSQL(cuenta_administrador);
-        sqLiteDatabase.execSQL(cuenta_bancaria);
-        sqLiteDatabase.execSQL(transaccion);
-
         ContentValues values = new ContentValues();
         values.put("ID_USER", 1);
         values.put("IDENTIFICATION_USER",1);
         values.put("NAME", "Pepito");
         values.put("EMAIL", "pepito@hotmail.com");
         values.put("PHONE", 2617447);
-        values.put("PASSWORD_USER NUMBER", 123456);
+        values.put("PASSWORD_USER", 123456);
         sqLiteDatabase.insert("USER",null, values);
 
         ContentValues values1 = new ContentValues();
@@ -65,7 +48,7 @@ public class Database extends SQLiteOpenHelper {
         values1.put("NAME", "Mendieta");
         values1.put("EMAIL", "mendieta@hotmail.com");
         values1.put("PHONE",2617448);
-        values1.put("PASSWORD_USER NUMBER",123456);
+        values1.put("PASSWORD_USER",123456);
         sqLiteDatabase.insert("USER",null, values1);
 
         ContentValues values_A = new ContentValues();
@@ -87,6 +70,23 @@ public class Database extends SQLiteOpenHelper {
         values_a2.put("ID_USER",2);
         values_a2.put("ID_ADMIN",1);
         sqLiteDatabase.insert("ACCOUNT",null,values_a2);
+        //sqLiteDatabase.execSQL();
+
+    }
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        System.out.println("papas5");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_usuario);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_administrador);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_bancaria);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + transaccion);
+
+        sqLiteDatabase.execSQL(cuenta_usuario);
+        sqLiteDatabase.execSQL(cuenta_administrador);
+        sqLiteDatabase.execSQL(cuenta_bancaria);
+        sqLiteDatabase.execSQL(transaccion);
+
+
 
 
     }

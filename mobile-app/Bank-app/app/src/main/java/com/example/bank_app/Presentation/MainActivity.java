@@ -2,6 +2,7 @@ package com.example.bank_app.Presentation;
 
 import android.app.Presentation;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.bank_app.BusinessLogic.SingIn;
+import com.example.bank_app.DataAccess.DataBase.Database;
 import com.example.bank_app.R;
 
 public class MainActivity extends AppCompatActivity {

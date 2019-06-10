@@ -21,12 +21,12 @@ public class SingIn {
 
             user = userRepository.getUserByIdentification(Integer.parseInt(id));
               if(user!=null){
-                    if(user.getPassword_user()==Integer.parseInt(password)){
+                    if(user.getPassword_user()== (int)Integer.parseInt(password)){
                         return true;
                       }else{
                         return false;
                     }
                  }
-              return true;
+              return false;
             }
        }
