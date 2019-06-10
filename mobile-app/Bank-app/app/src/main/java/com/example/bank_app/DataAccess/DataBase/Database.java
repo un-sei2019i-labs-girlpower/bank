@@ -24,11 +24,12 @@ public class Database extends SQLiteOpenHelper {
 
     public Database(Context context) {
         super(context, nombre, null, version);
+        this.getReadableDatabase();
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        System.out.println("papas1");
+        System.out.println("papasonCreate");
         sqLiteDatabase.execSQL(cuenta_usuario);
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
@@ -75,7 +76,7 @@ public class Database extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        System.out.println("papas5");
+        System.out.println("papasUpgrade");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_usuario);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_administrador);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + cuenta_bancaria);
@@ -85,8 +86,6 @@ public class Database extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(cuenta_administrador);
         sqLiteDatabase.execSQL(cuenta_bancaria);
         sqLiteDatabase.execSQL(transaccion);
-
-
 
 
     }

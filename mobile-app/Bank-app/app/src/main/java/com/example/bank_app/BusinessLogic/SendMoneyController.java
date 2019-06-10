@@ -6,11 +6,14 @@ import com.example.bank_app.DataAccess.Models.Account;
 import com.example.bank_app.DataAccess.Models.Transaction;
 
 
+import com.example.bank_app.DataAccess.Models.User;
 import com.example.bank_app.DataAccess.Repositories.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import javax.xml.transform.sax.SAXSource;
 
 public class SendMoneyController {
 public static int referencia = 0;
@@ -24,6 +27,9 @@ private static Account account2;
     public SendMoneyController(Context context) {
         this.context = context;
         this.ar = new AccountRepository(context);
+        ur= new UserRepository(context);
+        tr= new TransactionRepository(context);
+        ar= new AccountRepository(context);
     }
 
     private boolean verify_Amount (int user_identification, double amount){
@@ -42,10 +48,10 @@ private static Account account2;
 
 
     public int sendMoney (int user_identification1, int  user_identification2, double amount) { //devuelve el caso 1. transaccion exitosa 2. no hay suficiente saldo 3. el destinatario no existe
-
+        System.out.println(user_identification1);
         // SE OBTIENE EL ID DE CADA USER (USER1 - ENVIA     USER2 - RECIBE)
-        int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
 
+        int id_u_1 = ur.getUserByIdentification(user_identification1).getId_user();
 
         // SE OBTIENEN LAS CUENTAS DE CADA USUARIO
         Account ac1 = ar.getAccount_by(id_u_1);

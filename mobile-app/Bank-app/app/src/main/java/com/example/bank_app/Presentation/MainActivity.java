@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                       intent.putExtra("user_identification", editCog.getText().toString());
                       startActivity(intent);
 
-                    }else{
+              }else{
                     Toast.makeText(getApplicationContext(), "USUARIO O CONTRASEÑA INCORRECTO", Toast.LENGTH_SHORT).show();
 
                 }}

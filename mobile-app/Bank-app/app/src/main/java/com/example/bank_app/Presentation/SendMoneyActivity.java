@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 
 import com.example.bank_app.BusinessLogic.SendMoneyController;
+import com.example.bank_app.DataAccess.Models.Account;
+import com.example.bank_app.DataAccess.Models.User;
 import com.example.bank_app.DataAccess.Repositories.AccountRepository;
 import com.example.bank_app.DataAccess.Repositories.UserRepository;
 import com.example.bank_app.R;
@@ -19,6 +21,8 @@ public class SendMoneyActivity extends AppCompatActivity {
     Button enviar;
     TextView saldo;
     EditText aumount, payee_identification;
+    Account ac;
+    User u;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +30,17 @@ public class SendMoneyActivity extends AppCompatActivity {
         aumount = (EditText)findViewById(R.id.Amount);
         payee_identification = (EditText)findViewById(R.id.payee_identification);
         enviar = (Button) findViewById(R.id.B_enviar);
-        saldo = (TextView) findViewById(R.id.T_saldo);
+        saldo = (TextView) findViewById(R.id.Saldo);
         Bundle bundle = getIntent().getExtras();
         final int user_identification1 =  Integer.parseInt(bundle.getString("user_identification"));
+        final AccountRepository ar=new AccountRepository(getApplicationContext());
+        final UserRepository ur=new UserRepository(getApplicationContext());
+        u=ur.getUserByIdentification(user_identification1);
+        int id_u=u.getId_user();
+        ac=ar.getAccount_by(id_u);
+        saldo.setText("Amount: "+ac.getAmount());
+
+
         final SendMoneyController sendMoneyController = new SendMoneyController(getApplicationContext());
 
         enviar.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +52,11 @@ public class SendMoneyActivity extends AppCompatActivity {
 
                     case 1:
                         Toast.makeText(getApplicationContext(), "TRANSACCIÓN EXITOSA", Toast.LENGTH_SHORT).show();
+                        u=ur.getUserByIdentification(user_identification1);
+                        int id_u=u.getId_user();
+                        ac=ar.getAccount_by(id_u);
+                        saldo.setText("Amount: "+ac.getAmount());
+
                         break;
                     case 2:
                         Toast.makeText(getApplicationContext(), "SALDO INSUFICIENTE", Toast.LENGTH_SHORT).show();

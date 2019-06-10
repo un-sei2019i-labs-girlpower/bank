@@ -15,7 +15,6 @@ public class UserRepository {
     public UserRepository(Context context) {
         this.context= context;
         this.db = new Database(context);
-        System.out.println("papas2");
     }
     public boolean createUser (User user){
         SQLiteDatabase database = db.getWritableDatabase();
@@ -30,9 +29,7 @@ public class UserRepository {
         return true;
     };
     public User getUserByIdentification(int identification_user){
-        System.out.println("papas3");
         SQLiteDatabase database = db.getReadableDatabase();
-        if(database!= null) System.out.println("papas4");
         ContentValues values = new ContentValues();
         User user= new User();
         String[] camp= {"ID_USER", "IDENTIFICATION_USER", "NAME", "EMAIL", "PHONE", "PASSWORD_USER"};

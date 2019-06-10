@@ -30,7 +30,7 @@ public class AccountRepository {
         return true;
     };
     public Account getAccount_by (int ID_USERS_SEARCH){
-        SQLiteDatabase database = db.getWritableDatabase();
+        SQLiteDatabase database = db.getReadableDatabase();
 
         String[] columnas = new String[4];
         columnas[0]="ACCOUNT_NUMBER";
