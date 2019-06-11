@@ -54,13 +54,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:ems="10"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/B_agregar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Agregar" />
+            android:inputType="numberPassword" />
 
         <Button
             android:id="@+id/B_iniciar"
