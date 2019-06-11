@@ -5,12 +5,12 @@ import android.content.Context;
 import com.example.bank_app.DataAccess.Models.User;
 import com.example.bank_app.DataAccess.Repositories.UserRepository;
 
-public class SingIn {
+public class SignInController {
     User user;
     UserRepository userRepository;
     Context context;
 
-    public SingIn(Context context) {
+    public SignInController(Context context) {
         this.user = new User();
         this.userRepository = new UserRepository(context);
         this.context = context;

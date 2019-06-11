@@ -1,8 +1,6 @@
 package com.example.bank_app.Presentation;
 
-import android.app.Presentation;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.bank_app.BusinessLogic.SingIn;
-import com.example.bank_app.DataAccess.DataBase.Database;
+import com.example.bank_app.BusinessLogic.SignInController;
 import com.example.bank_app.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         editCog = (EditText)findViewById(R.id.editID);
         edcontraseña = (EditText)findViewById(R.id.editContraseña);
         Biniciar= (Button) findViewById(R.id.B_iniciar);
-        final SingIn singIn = new SingIn(getApplicationContext());
+        final SignInController singIn = new SignInController(getApplicationContext());
 
         Biniciar.setOnClickListener(new View.OnClickListener() {
             @Override
