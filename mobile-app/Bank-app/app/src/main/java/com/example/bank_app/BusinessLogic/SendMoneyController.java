@@ -40,8 +40,8 @@ private static Account account2;
     }
 
     private boolean verify_account_recipient(int user_identification){
-        account2 = ar.getAccount_by(user_identification);
-        if(account2==null)
+        User u = ur.getUserByIdentification(user_identification);
+        if(u==null)
             return false;
         return true;
     }
