@@ -70,8 +70,8 @@ private static Account account2;
                 // SE CREAN LAS CUENTAS ACTUALIZADAS PARA PASAR EN LA FUNCION UPDATEACCOUNT
 
                 Account ac1N = new Account(ac1.getAccount_number(), 1, ac1.getAmount() - amount, id_u_1);
-                Account ac2N = new Account(ac2.getAccount_number(), 1, ac2.getAmount() + amount, id_u_2);
                 ar.updateAccount(ac1N, ac1);
+                Account ac2N = new Account(ac2.getAccount_number(), 1, ac2.getAmount() + amount, id_u_2);
                 ar.updateAccount(ac2N, ac2);
 
                 // SE CREA LA TRANSACCION PARA CADA USUARIO
