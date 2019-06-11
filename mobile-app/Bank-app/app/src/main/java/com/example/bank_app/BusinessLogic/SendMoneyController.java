@@ -33,7 +33,8 @@ private static Account account2;
     }
 
     private boolean verify_Amount (int user_identification, double amount){
-        account1 = ar.getAccount_by(user_identification);
+        User u = ur.getUserByIdentification(user_identification);
+        Account account1 = ar.getAccount_by(u.getId_user());
         if(account1.getAmount()>=amount)
             return true;
         return false;
