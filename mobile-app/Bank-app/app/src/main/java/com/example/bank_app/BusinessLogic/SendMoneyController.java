@@ -32,9 +32,8 @@ private static Account account2;
         ar= new AccountRepository(context);
     }
 
-    private boolean verify_Amount (int user_identification, double amount){
-        User u = ur.getUserByIdentification(user_identification);
-        Account account1 = ar.getAccount_by(u.getId_user());
+    private boolean verify_Amount (int user_id, double amount){
+        Account account1 = ar.getAccount_by(user_id);
         if(account1.getAmount()>=amount)
             return true;
         return false;
@@ -66,7 +65,7 @@ private static Account account2;
             int id_u_2 = ur.getUserByIdentification(user_identification2).getId_user();
             Account ac2 = ar.getAccount_by(id_u_2);
 
-            if (verify_Amount(user_identification1, amount)) { // SE VERIFICA QUE EL USUARIO QUE ENVIA TENGA SUFICIENTE SALDO
+            if (verify_Amount(id_u_1, amount)) { // SE VERIFICA QUE EL USUARIO QUE ENVIA TENGA SUFICIENTE SALDO
 
                 // SE CREA LA TRANSACCION PARA CADA USUARIO
                 Transaction t1 = new Transaction(ac1.getAccount_number(), referencia++, date, "Sender"); //EL QUE ENVIA
