@@ -1,5 +1,8 @@
 package com.example.bank_app;
 
+import com.example.bank_app.BusinessLogic.SendMoneyController;
+import com.example.bank_app.Presentation.MainActivity;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +15,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+
+        assertTrue(SendMoneyController.verify_Amoun_p(100.,50));
     }
+
 }

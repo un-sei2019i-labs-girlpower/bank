@@ -32,11 +32,17 @@ private static Account account2;
         ar= new AccountRepository(context);
     }
 
-    private boolean verify_Amount (int user_id, double amount){
+    private  boolean verify_Amount (int user_id, double amount){
         Account account1 = ar.getAccount_by(user_id);
         if(account1.getAmount()>=amount)
             return true;
         return false;
+    }
+
+    public static boolean verify_Amoun_p (double balance, double amount){
+
+        return balance>=amount;
+
     }
 
     private boolean verify_account_recipient(int user_identification){
